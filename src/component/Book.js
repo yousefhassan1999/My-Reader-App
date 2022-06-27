@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
 class Book extends Component {
-  state ={
-    value: this.props.data.shelf
-  }
+  state = {
+    value: this.props.data.shelf,
+  };
   changeFunc = (event) => {
-    this.setState({value: event.target.value});
+    this.setState({ value: event.target.value });
     BooksAPI.update(this.props.data, event.target.value).then((value) => {
       this.props.onclick(value);
     });
-  }
+  };
 
   render() {
     return (
@@ -26,23 +26,19 @@ class Book extends Component {
               })`,
             }}
           />
-          <div  className="book-shelf-changer">
-            <select value={this.state.value} id="selectBox" onChange={this.changeFunc}>
+          <div className="book-shelf-changer">
+            <select
+              value={this.state.value}
+              id="selectBox"
+              onChange={this.changeFunc}
+            >
               <option value="move" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading">
-                Currently Reading
-              </option>
-              <option value="wantToRead" >
-                Want to Read
-              </option>
-              <option value="read" >
-                Read
-              </option>
-              <option value="none">
-                None
-              </option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
+              <option value="none">None</option>
             </select>
           </div>
         </div>

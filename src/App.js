@@ -65,20 +65,18 @@ class BooksApp extends React.Component {
   };
 
   HandleSearch = (ev) => {
-    if (ev.target.value.length>0) {
+    if (ev.target.value.length > 0) {
       ev.preventDefault();
       BooksAPI.search(ev.target.value).then((value) => {
-        if (value.length>0) {
+        if (value.length > 0) {
           this.setState({
             SearchResult: value,
           });
         }
-
       });
-    }
-    else{
+    } else {
       this.setState({
-        SearchResult: []
+        SearchResult: [],
       });
     }
   };

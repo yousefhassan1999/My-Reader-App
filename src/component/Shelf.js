@@ -7,7 +7,7 @@ class Shelf extends Component {
     const Books = productCatShow.map((product) => {
       return (
         <li key={product.id}>
-          <Book data={product} onclick={this.props.onclick}/>
+          <Book data={product} onclick={this.props.onclick} />
         </li>
       );
     });
