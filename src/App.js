@@ -65,7 +65,6 @@ class BooksApp extends React.Component {
   };
 
   HandleSearch = (ev) => {
-    console.log(ev.target.value)
     if (ev.target.value.length>0) {
       ev.preventDefault();
       BooksAPI.search(ev.target.value).then((value) => {

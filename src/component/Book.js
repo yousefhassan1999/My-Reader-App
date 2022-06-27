@@ -2,12 +2,16 @@ import React, { Component } from "react";
 import * as BooksAPI from "../BooksAPI";
 
 class Book extends Component {
-  HandleSearch = (ev) => {
-      ev.preventDefault();
-      BooksAPI.update(this.props.data,ev.target.value).then((value) => {
-        this.props.onclick(value)
-      });
-  };
+  state ={
+    value: this.props.data.shelf
+  }
+  changeFunc = (event) => {
+    this.setState({value: event.target.value});
+    BooksAPI.update(this.props.data, event.target.value).then((value) => {
+      this.props.onclick(value);
+    });
+  }
+
   render() {
     return (
       <div className="book">
@@ -17,19 +21,28 @@ class Book extends Component {
             style={{
               width: 128,
               height: 193,
-              backgroundImage:
-              `url(${this.props.data.imageLinks.smallThumbnail})`,
+              backgroundImage: `url(${
+                this.props.data.imageLinks.smallThumbnail
+              })`,
             }}
           />
-          <div className="book-shelf-changer">
-            <select>
+          <div  className="book-shelf-changer">
+            <select value={this.state.value} id="selectBox" onChange={this.changeFunc}>
               <option value="move" disabled>
                 Move to...
               </option>
-              <option value="currentlyReading" onClick={this.HandleSearch}>Currently Reading</option>
-              <option value="wantToRead" onClick={this.HandleSearch}>Want to Read</option>
-              <option value="read" onClick={this.HandleSearch}>Read</option>
-              <option value="none" onClick={this.HandleSearch}>None</option>
+              <option value="currentlyReading">
+                Currently Reading
+              </option>
+              <option value="wantToRead" >
+                Want to Read
+              </option>
+              <option value="read" >
+                Read
+              </option>
+              <option value="none">
+                None
+              </option>
             </select>
           </div>
         </div>
