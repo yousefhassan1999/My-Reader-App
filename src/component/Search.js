@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Book from "./Book";
 import { Link } from "react-router-dom";
 
-const Search = ({ handleUpdateCase }) => {
+const Search = ({ handleUpdateCase, Books }) => {
   const [SearchResult, setSerchResult] = React.useState([]);
 
   const HandleSearch = (ev) => {
@@ -12,7 +12,13 @@ const Search = ({ handleUpdateCase }) => {
       ev.preventDefault();
       BooksAPI.search(ev.target.value).then((value) => {
         if (value.length > 0) {
-          setSerchResult(value);
+          const res = value.map((book) => {
+            const isFound = Books.filter((b) => b.id === book.id);
+            console.log(isFound)
+            book = isFound.length > 0 ? isFound[0] : book;
+            return book ;
+          });
+          setSerchResult(res);
         }
       });
     } else {

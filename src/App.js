@@ -77,7 +77,7 @@ const BooksApp = () => {
         />
         <Route
           path="/Search"
-          element={<Search handleUpdateCase={handleUpdateCase} />}
+          element={<Search handleUpdateCase={handleUpdateCase} Books={Books} />}
         />
       </Routes>
     </div>
