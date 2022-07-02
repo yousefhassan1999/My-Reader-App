@@ -37,7 +37,7 @@ const BooksApp = () => {
   const handleUpdateCase = (book, shelf) => {
     book.shelf = shelf;
     BooksAPI.update(book, shelf).then(() => {
-      setBooks([...Books.filter((b) => b.id !== book.id), book]);
+      shelf === "none"? setBooks([...Books.filter((b) => b.id !== book.id)]): setBooks([...Books.filter((b) => b.id !== book.id), book]);
       setShelves(groupby("shelf", Books));
     });
     navigate("/");
