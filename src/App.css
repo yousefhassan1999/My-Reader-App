@@ -14,7 +14,7 @@ body, .app {
 
 .list-books-title {
   padding: 10px 0;
-  background: #2e7c31;
+  background: #2b2929;
   text-align: center;
 }
 
@@ -25,19 +25,37 @@ body, .app {
 }
 
 .list-books-content {
-  padding: 0 0 80px;
-  flex: 1;
+  /* padding: 0 0 80px; */
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
 }
 
 .bookshelf {
+  text-align: center;
+  margin-top: 10px;
   padding: 0 10px 20px;
 }
 
-@media (min-width: 600px) {
+@media screen and (min-width: 768px){
   .bookshelf {
+    width: 100%;
     padding: 0 20px 40px;
   }
 }
+
+@media screen and (min-width: 1200px){
+  .list-books-content {
+    display: flex;
+    flex-direction: row;
+  }
+  .bookshelf {
+    width: calc(100% / 3);
+    padding: 0 20px 40px;
+    border-right: 2px solid rgb(207, 207, 207);
+  }
+}
+
 
 .bookshelf-title {
   border-bottom: 1px solid #dedede;
@@ -45,6 +63,12 @@ body, .app {
 
 .bookshelf-books {
   text-align: center;
+}
+
+@media screen and (min-width: 1200px){
+  .bookshelf-books {
+    height: 80vh;
+  }
 }
 
 .open-search {
@@ -135,7 +159,7 @@ button:active {
 
 .books-grid li {
   padding: 10px 15px;
-  text-align: left;
+  text-align: center;
 }
 
 .book {
