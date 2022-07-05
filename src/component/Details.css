@@ -1,0 +1,44 @@
+.Cover{
+    margin-bottom: 10px;
+}
+span{
+    font-size: x-large;
+    font-weight: bolder;
+}
+.authors{
+    display: flex;
+    flex-direction: column;
+}
+
+.authors li{
+    list-style-type: none;
+    padding: 6px;
+}
+.book-description{
+    margin-bottom: 10px;
+}
+.Anchor , .Anchor:hover{
+    text-decoration: none;
+    color: white;
+}
+.Anchor:hover{
+    text-decoration: none;
+    color: rgb(184, 178, 178);
+}
+@media screen and (min-width: 768px) {
+    .authors{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+}
+@media screen and (min-width: 992px){
+    .intro-section {
+        display: flex;
+      }
+      .Cover {
+        margin-right: 20px;
+      }
+    
+}
+
